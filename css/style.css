@@ -107,148 +107,159 @@ footer{
 
 /* Step 1: Write selector/rule property to add an underline when
 links in the navigation are in the hover or focus state.*/
-nav a:hover,
-nav a:focus{
+
+nav a:hover {
   text-decoration: underline;
 }
 
+nav a:focus {
+  text-decoration: underline;
+}
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 .skip a{
-  background: white;
-  left: 0;
-  padding: 6px;
-  -webkit-transition: top 1s ease-out;
-  transition: top 1s ease-out;
-  z-index: 1;
-  top: -40px; /* Default position, 40px above the top of its parent element */
-  position: absolute;
+ 
+  position: absolute; 
+  top: -40px;  
+ 
 }
 
+
+
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
-.skip a:focus{
+
+.skip a:focus {
   top: 20px;
 }
 
 /* Step 3: Write selector/rule property to style all elements when in focus*/
-*:focus{
-  outline: 2px solid black;
+
+*:focus {
+  border: solid black 2px;
 }
+
 
 /* Step 4: Write selector/rule property to style the container */
-.container {
-  display: grid;
-  grid-template-columns: 1fr 5fr 1fr;
-  gap: 15px;
-  /* left: 0;
-  padding: 6px;
-  -webkit-transition: top 1s ease-out;
-  transition: top 1s ease-out;
-  z-index: 1;
-  top: -40px; 
-  position: absolute;  */
-}
 
+.container {
+display: grid;
+grid-template-columns: 1fr 5fr 1fr;
+grid-gap: 15px;
+
+
+}
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
-.container > :first-child{
-  grid-column: 1 / -1;
-  min-height: 500px;
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-image: url('../images/header.jpg');
-  background-attachment: fixed;
+
+div.overview {
+  /* Set the background image and its positioning properties */
+  background-image: url("../images/header.jpg"); /* Replace 'your-image-url.jpg' with the actual URL of your image */
+  
 }
+
+
+
+
+
+
+
 
 
 /* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
  four rows in the grid. */
 
+.about, .method, .clients, .contact {
+  grid-column: 2 / span 1;
+  grid-row: 2 / span 1;
+}
+
+.about {
+  grid-row: 2;
+}
+
+.method {
+  grid-row: 3;
+}
+
+.clients {
+  grid-row: 4;
+}
+
+.contact {
+  grid-row: 5;
+}
+
+
+.about-image, .method-image, .clients-image, .contact-image {
+  grid-column: 1 / span 3;
+  max-height: 600px;
+  overflow: hidden;
+
+}
+
+.about-image {
+  grid-row: 2;
+}
+
+.method-image {
+  grid-row: 3;
+}
+
+.clients-image {
+  grid-row: 4;
+}
+
+.contact-image {
+  grid-row: 5;
+}
+
       /*This will be a lot of rules.... but be strategic and combine seletors*/
-/* Step 6 and 7: Style the classes .about, .method, .clients, and .contact */
-.container > :nth-child(2) {
-  grid-column: 2 / 3; 
-  grid-row: 2; 
-}
 
-.container > :nth-child(3) {
-  grid-column: 2 / 3;
-  grid-row: 3; 
-}
-
-.container > :nth-child(4) {
-  grid-column: 2 / 3; 
-  grid-row: 4; 
-}
-
-.container > :nth-child(5) {
-  grid-column: 2 / 3; 
-  grid-row: 5; 
-}
-#about, #method, #clients, #contact {
-  grid-column: 1 / -1; 
-  max-height: 600px; 
-  overflow: hidden; 
-}
-#about {
-  grid-row: 2; 
-}
-
-#method {
-  grid-row: 3; 
-}
-
-#clients {
-  grid-row: 4; 
-}
-
-#contact {
-  grid-row: 5; 
-}
 
  /* Step 8: Write the selector/rule property to style the .text-block class. */
+
  .text-block {
-  max-height: 250px; /* Maximum height of 250px */
-  display: flex; /* Center horizontally and vertically */
-  align-items: center; /* Center vertically */
-  justify-content: center; /*Center horizontally */
-  overflow: auto; /* Ensure content that goes outside the grid cell is reachable */
+  /* Set your desired styling properties */
+  font-family: Arial, sans-serif; /* Example font family; replace with your choice */
+  font-size: 16px; /* Example font size; adjust as needed */
+  color: #333; /* Example text color; change to your preferred color */
+  /* Add other styling properties as necessary */
 }
 
 /* Add your media query here */
 
-
-  /* Step 9: Write the selector/rule property to style the nav element */
-nav{
-  padding: 30px 0;
-  text-align: right;
+/* Add your media query here */
+@media screen and (max-width: 768px) {
+  /* Write your responsive CSS rules here for screens with a maximum width of 768px */
+  /* This is just a placeholder; customize as needed */
 }
+
+/* Step 9: Write the selector/rule property to style the nav element */
+nav {
+  /* Set your desired styling properties for the nav element */
+  background-color: #333; /* Example background color; change as needed */
+  color: #fff; /* Example text color; change to your preferred color */
+  /* Add other styling properties as necessary */
+}
+
+/* Step 10: Write the selector/rule property to update the .container class */
+.container {
+  /* Update the styling properties for the .container class */
+  max-width: 1200px; /* Example maximum width; adjust as needed */
+  margin: 0 auto; /* Center the container; adjust as needed */
+  /* Add other styling properties as necessary */
+}
+
+/* Steps 11 and 12: Update the grid-column property of the grid's children (where needed) */
+/* Example for updating grid column property for specific children */
+.grid > div:nth-child(odd) {
+  grid-column: span 2; /* Example to span 2 columns for odd children; adjust as needed */
+}
+  /* Step 9: Write the selector/rule property to style the nav element */
+
  
   /* Step 10: Write the selector/rule property to update the .container class */
-  .container {
-    display: grid;
-    grid-template-columns: 50px auto 500px auto 50px; /* Five columns: 50px, auto, 500px, auto, 50px */
-    gap: 15px; /* Gap of 15px */
-    padding: 6px;
-    -webkit-transition: top 1s ease-out;
-    transition: top 1s ease-out;
-    z-index: 1;
-    top: -40px; /* Default position, 40px above the top of its parent element */
-    position: absolute;
-  }
+
 
   /* Steps 11 and 12: Update the grid-column property of the grid's children (where-needed)*/
-  .about,
-  .clients,
-  .method-image,
-  .contact-image {
-    grid-column: 3 / span 2; 
-  }
-  
-  .method,
-  .contact,
-  .about-image,
-  .clients-image {
-    grid-column: 2 / span 2; 
-  }
 
